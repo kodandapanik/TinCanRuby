@@ -114,8 +114,7 @@ module TinCanApi
         if response.status == 200
           # TODO: FIX THIS
           lrs.success = true
-          lrs.content = response.body
-          #lrs.content = StatementsResult.new(json: response.body)
+          lrs.content = StatementsResult.new(json: JSON.parse(response.body))
         else
           lrs.success = false
         end
