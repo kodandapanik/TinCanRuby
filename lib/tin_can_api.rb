@@ -25,6 +25,7 @@ require 'tin_can_api/statements_query'
 require 'tin_can_api/statements_query_v095'
 require 'tin_can_api/lrs_response'
 require "tin_can_api/remote_lrs"
+require 'tin_can_api/statements_result'
 
 begin
   require 'pry'
