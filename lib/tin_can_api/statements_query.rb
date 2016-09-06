@@ -2,7 +2,7 @@
 module TinCanApi
   class StatementsQuery
 
-    attr_reader :version, :verb_id
+    attr_accessor :version, :verb_id
     attr_accessor :agent, :activity_id, :registration, :related_activities, :related_agents
     attr_accessor :stored_since, :stored_until, :limit, :format, :ascending
 
