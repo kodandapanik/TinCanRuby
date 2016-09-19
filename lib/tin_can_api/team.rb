@@ -1,13 +1,13 @@
 # encoding: utf-8
 require 'tin_can_api/tcapi_version'
 module TinCanApi
-  # Agent model class
-  class Agent
+  # Team model class
+  class Team
 
     attr_accessor :name, :mbox, :mbox_sha1_sum, :open_id, :account, :object_type
 
     def initialize(options={}, &block)
-      @object_type = 'Agent'
+      @object_type = 'Group'
       json = options.fetch(:json, nil)
       if json
         attributes = JSON.parse(json)

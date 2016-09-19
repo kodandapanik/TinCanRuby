@@ -12,7 +12,7 @@ module TinCanApi
         attributes = JSON.parse(json)
         self.registration = attributes['registration'] if attributes['registration']
         self.instructor = TinCanApi::Agent.new(json: attributes['instructor'].to_json) if attributes['instructor']
-        self.team = TinCanApi::Agent.new(json: attributes['team'].to_json) if attributes['team']
+        self.team = TinCanApi::Team.new(json: attributes['team'].to_json) if attributes['team']
         self.context_activities = TinCanApi::ContextActivities.new(json: attributes['contextActivities'].to_json) if attributes['contextActivities']
         self.revision = attributes['revision'] if attributes['revision']
         self.platform = attributes['platform'] if attributes['platform']
