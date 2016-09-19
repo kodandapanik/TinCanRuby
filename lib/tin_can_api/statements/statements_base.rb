@@ -10,7 +10,7 @@ module TinCanApi
         json = options.fetch(:json, nil)
         if json
           attributes = JSON.parse(json)
-          self.actor = if attributes['actor'].class.to_s.eql?("Array") ? TinCanApi::Group.new(members: attributes['actor']) : TinCanApi::Agent.new(json: attributes['actor'].to_json)
+          self.actor = attributes['actor'].class.to_s.eql?("Array") ? TinCanApi::Group.new(members: attributes['actor']) : TinCanApi::Agent.new(json: attributes['actor'].to_json)
           self.verb = TinCanApi::Verb.new(json: attributes['verb'].to_json) if attributes['verb']
           object_node = attributes['object']
           if object_node
