@@ -11,6 +11,7 @@ module TinCanApi
       json = options.fetch(:json, nil)
       if json
         attributes = JSON.parse(json)
+        self.object_type = attributes['object_type'] if attributes['object_type'].eql?("Group") # this is for  context team
         self.name = attributes['name'] if attributes['name']
         self.mbox = attributes['mbox'] if attributes['mbox']
         self.mbox_sha1_sum = attributes['mbox_sha1sum'] if attributes['mbox_sha1sum']
