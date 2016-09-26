@@ -213,15 +213,11 @@ module TinCanApi
           'profileId' => id,
           'activityId' => activity.id,
       }
-      document = ActivityProfileDocument.new do |apd|
+      document = Documents::ActivityProfileDocument.new do |apd|
         apd.id = id
         apd.activity = activity
       end
-      lrs_response = get_document('activities/profile', query_params, document)
-      if lrs_response.status == 200
-        lrs_response.content = document
-      end
-      lrs_response
+      get_document('activities/profile', query_params, document)
     end
 
     def save_activity_profile(profile)
@@ -348,6 +344,7 @@ module TinCanApi
         lrs.status = response.status
         if response.status == 200
           lrs.success = true
+          lrs.content = JSON.parse(response.body)
           # TODO FIX THIS
         elsif response.status == 404
           lrs.success = true
