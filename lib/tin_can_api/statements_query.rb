@@ -23,7 +23,7 @@ module TinCanApi
 
     def parameter_map
       params = {}
-      params['agent'] = agent.to_json if agent
+      params['agent'] = agent.object_type.eql?("Group") ? {"account": {"homePage": agent.account.home_page, "name": agent.account.name}}.to_json : {"mbox":agent.mbox}.to_json if agent
       params['verb'] = verb_id.to_s if verb_id
       params['activity'] = activity_id.to_s if activity_id
       params['registration'] = registration if registration
