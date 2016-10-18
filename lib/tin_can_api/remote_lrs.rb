@@ -252,7 +252,7 @@ module TinCanApi
           'profileId' => id,
           'agent' => agent.serialize(version).to_json
       }
-      document = AgentProfileDocument.new do |apd|
+      document = Documents::AgentProfileDocument.new do |apd|
         apd.id = id
         apd.agent = agent
       end
