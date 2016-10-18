@@ -256,11 +256,7 @@ module TinCanApi
         apd.id = id
         apd.agent = agent
       end
-      lrs_response = get_document('agents/profile', query_params, document)
-      if lrs_response.status == 200
-        lrs_response.content = document
-      end
-      lrs_response
+      get_document('agents/profile', query_params, document)
     end
 
     def save_agent_profile(profile)
